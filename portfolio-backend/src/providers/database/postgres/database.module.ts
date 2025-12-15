@@ -26,7 +26,7 @@ import { Admin } from '../../../auth/entities/admin.entity';
             ssl: {
               rejectUnauthorized: false,
             },
-            synchronize: false, // ✅ NEVER true in prod
+            synchronize: true, // ✅ NEVER true in prod
             logging: false,
           };
         }
