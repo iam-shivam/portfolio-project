@@ -1,0 +1,24 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root layout */
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Important: REMOVE flex centering! */
+body {
+  background-color: #1a1f2e;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Buttons (optional) */
+button {
+  cursor: pointer;
+}
