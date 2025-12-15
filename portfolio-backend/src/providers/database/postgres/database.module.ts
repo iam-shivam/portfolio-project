@@ -12,25 +12,41 @@ import { Admin } from 'src/auth/entities/admin.entity';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => {
+      useFactory: async (
+        configService: ConfigService,
+      ): Promise<TypeOrmModuleOptions> => {
+        const isProd = configService.get('NODE_ENV') === 'production';
+
+        // 🔴 PRODUCTION (Render)
+        if (isProd) {
+          return {
+            type: 'postgres',
+            url: process.env.DATABASE_URL,
+            autoLoadEntities: true,
+            ssl: {
+              rejectUnauthorized: false,
+            },
+            synchronize: false, // ✅ NEVER true in prod
+            logging: false,
+          };
+        }
+
+        // 🟢 LOCAL DEVELOPMENT
         const dbConfig = configService.get('database.postgres');
-        // console.log('Database Config:', dbConfig); // Debug log
-        const options: TypeOrmModuleOptions = {
+
+        return {
           type: 'postgres',
           host: dbConfig.host,
           port: dbConfig.port,
           username: dbConfig.user,
           password: dbConfig.password,
           database: dbConfig.name,
-          ssl: dbConfig.enableSSL,
           entities: [Admin, Blog, Contact, Project, Skill],
-          synchronize: true, // for dev only
-          logging: false, // Enable query logging
+          synchronize: true, // ✅ dev only
+          logging: true,
         };
-        return options;
       },
     }),
-    // TypeOrmModule.forFeature(entities, 'user-db'),
   ],
   exports: [TypeOrmModule],
 })
