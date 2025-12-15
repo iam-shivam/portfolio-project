@@ -1,26 +1,27 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Download, Code2, Database, Globe, Server, Terminal, Sun, Moon, ExternalLink, ChevronDown, Calendar, Clock } from 'lucide-react';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+// const API_BASE_URL = 'http://localhost:5000/api';
+
 
 const api = {
   getBlogs: async () => {
-    const res = await fetch(`${API_BASE_URL}/blogs?published=true`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/blogs?published=true`);
     if (!res.ok) throw new Error('Failed to fetch blogs');
     return res.json();
   },
   getProjects: async () => {
-    const res = await fetch(`${API_BASE_URL}/projects?featured=true`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/projects?featured=true`);
     if (!res.ok) throw new Error('Failed to fetch projects');
     return res.json();
   },
   getSkills: async () => {
-    const res = await fetch(`${API_BASE_URL}/skills/by-category`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/skills/by-category`);
     if (!res.ok) throw new Error('Failed to fetch skills');
     return res.json();
   },
   submitContact: async (data: { name: string; email: string; message: string }) => {
-    const res = await fetch(`${API_BASE_URL}/contact`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
