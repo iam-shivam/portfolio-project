@@ -11,15 +11,15 @@ import {
 export class CreateBlogDto {
   @IsString()
   @IsNotEmpty()
-  title: string;
+  title?: string;
 
   @IsString()
   @IsNotEmpty()
-  excerpt: string;
+  excerpt?: string;
 
   @IsString()
   @IsNotEmpty()
-  content: string;
+  content?: string;
 
   @IsOptional()
   @IsString()
@@ -27,14 +27,14 @@ export class CreateBlogDto {
 
   @IsArray()
   @IsString({ each: true })
-  tags: string[];
+  tags?: string[];
 
   @IsString()
   @IsNotEmpty()
-  author: string;
+  author?: string;
 
   @IsDateString()
-  publishedAt: string;
+  publishedAt?: string;
 
   @IsOptional()
   @IsNumber()

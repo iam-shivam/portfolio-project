@@ -9,44 +9,44 @@ import {
 @Entity('blogs')
 export class Blog {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id?: string;
 
   @Column()
-  title: string;
+  title?: string;
 
   @Column({ unique: true })
-  slug: string;
+  slug?: string;
 
   @Column('text')
-  excerpt: string;
+  excerpt?: string;
 
   @Column('text')
-  content: string;
+  content?: string;
 
   @Column({ nullable: true })
-  coverImage: string;
+  coverImage?: string;
 
   @Column('simple-array')
-  tags: string[];
+  tags?: string[];
 
   @Column()
-  author: string;
+  author?: string;
 
   @Column({ type: 'date' })
-  publishedAt: Date;
+  publishedAt?: Date;
 
   @Column({ default: 0 })
-  views: number;
+  views?: number;
 
   @Column({ default: 5 })
-  readTime: number; // in minutes
+  readTime?: number; // in minutes
 
   @Column({ default: true })
-  published: boolean;
+  published?: boolean;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt?: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt?: Date;
 }

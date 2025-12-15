@@ -11,27 +11,27 @@ import {
 export class CreateProjectDto {
   @IsString()
   @IsNotEmpty()
-  name: string;
+  name?: string;
 
   @IsString()
   @IsNotEmpty()
-  description: string;
+  description?: string;
 
   @IsString()
   @IsNotEmpty()
-  contributions: string;
+  contributions?: string;
 
   @IsArray()
   @IsString({ each: true })
-  stack: string[];
+  stack?: string[];
 
   @IsString()
   @IsNotEmpty()
-  challenges: string;
+  challenges?: string;
 
   @IsString()
   @IsNotEmpty()
-  achievements: string;
+  achievements?: string;
 
   @IsOptional()
   @IsUrl()

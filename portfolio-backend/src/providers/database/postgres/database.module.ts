@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { Blog } from 'src/blog/entities/blog.entity';
-import { Contact } from 'src/contact/entities/contact.entity';
-import { Skill } from 'src/skills/entities/skill.entity';
-import { Project } from 'src/projects/entities/project.entity';
-import { Admin } from 'src/auth/entities/admin.entity';
+import { Blog } from '../../../blog/entities/blog.entity';
+import { Contact } from '../../../contact/entities/contact.entity';
+import { Skill } from '../../../skills/entities/skill.entity';
+import { Project } from '../../..//projects/entities/project.entity';
+import { Admin } from '../../../auth/entities/admin.entity';
 
 @Module({
   imports: [

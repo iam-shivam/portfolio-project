@@ -15,6 +15,10 @@ export class AuthService {
   ) {}
 
   async register(registerDto: RegisterDto) {
+    if (!registerDto.password) {
+      throw new UnauthorizedException('Password is required');
+    }
+
     const hashedPassword = await bcrypt.hash(registerDto.password, 10);
     
     const admin = this.adminRepository.create({
@@ -33,6 +37,10 @@ export class AuthService {
     });
 
     if (!admin) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    if (!loginDto.password || !admin.password) {
       throw new UnauthorizedException('Invalid credentials');
     }
 

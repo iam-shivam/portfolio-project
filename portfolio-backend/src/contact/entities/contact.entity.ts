@@ -8,20 +8,20 @@ import {
 @Entity('contacts')
 export class Contact {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id?: string;
 
   @Column()
-  name: string;
+  name?: string;
 
   @Column()
-  email: string;
+  email?: string;
 
   @Column('text')
-  message: string;
+  message?: string;
 
   @Column({ default: false })
-  read: boolean;
+  read?: boolean;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt?: Date;
 }

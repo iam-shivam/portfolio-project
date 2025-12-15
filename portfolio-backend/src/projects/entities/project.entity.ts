@@ -9,47 +9,47 @@ import {
 @Entity('projects')
 export class Project {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id?: string;
 
   @Column()
-  name: string;
+  name?: string;
 
   @Column('text')
-  description: string;
+  description?: string;
 
   @Column('text')
-  contributions: string;
+  contributions?: string;
 
   @Column('simple-array')
-  stack: string[];
+  stack?: string[];
 
   @Column('text')
-  challenges: string;
+  challenges?: string;
 
   @Column('text')
-  achievements: string;
+  achievements?: string;
 
   @Column({ nullable: true })
-  link: string;
+  link?: string;
 
   @Column({ nullable: true })
-  githubUrl: string;
+  githubUrl?: string;
 
   @Column({ nullable: true })
-  liveUrl: string;
+  liveUrl?: string;
 
   @Column({ nullable: true })
-  image: string;
+  image?: string;
 
   @Column({ default: 0 })
-  order: number;
+  order?: number;
 
   @Column({ default: true })
-  featured: boolean;
+  featured?: boolean;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt?: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt?: Date;
 }

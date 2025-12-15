@@ -13,12 +13,12 @@ export class BlogService {
   ) {}
 
   async create(createBlogDto: CreateBlogDto): Promise<Blog> {
-    const slug = this.generateSlug(createBlogDto.title);
+    const slug = this.generateSlug(createBlogDto.title || 'untitled');
     
     const blog = this.blogRepository.create({
       ...createBlogDto,
       slug,
-      publishedAt: new Date(createBlogDto.publishedAt),
+      publishedAt: new Date(createBlogDto.publishedAt || Date.now()),
     });
 
     return await this.blogRepository.save(blog);
@@ -41,7 +41,7 @@ export class BlogService {
     }
 
     // Increment views
-    blog.views += 1;
+    blog.views = (blog.views || 0) + 1;
     await this.blogRepository.save(blog);
 
     return blog;
@@ -55,11 +55,12 @@ export class BlogService {
     }
 
     // Update slug if title changes
+    const updateData: any = { ...updateBlogDto };
     if (updateBlogDto.title && updateBlogDto.title !== blog.title) {
-      updateBlogDto['slug'] = this.generateSlug(updateBlogDto.title);
+      updateData.slug = this.generateSlug(updateBlogDto.title);
     }
 
-    Object.assign(blog, updateBlogDto);
+    Object.assign(blog, updateData);
     return await this.blogRepository.save(blog);
   }
 

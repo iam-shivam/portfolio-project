@@ -11,16 +11,16 @@ import {
 export class CreateSkillDto {
   @IsString()
   @IsNotEmpty()
-  name: string;
+  name?: string;
 
   @IsString()
   @IsIn(['backend', 'database', 'frontend', 'other'])
-  category: string;
+  category?: string;
 
   @IsNumber()
   @Min(0)
   @Max(100)
-  level: number;
+  level?: number;
 
   @IsOptional()
   @IsString()
