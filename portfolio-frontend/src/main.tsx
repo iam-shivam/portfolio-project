@@ -9,7 +9,6 @@ import { createRoot } from "react-dom/client";
 // import ProjectDetails from "./pages/ProjectDetails";
 // import Skills from "./pages/Skills";
 import "./index.css";
-import "./app.css";
 import { StrictMode } from "react";
 import Portfolio from "./App";
 
