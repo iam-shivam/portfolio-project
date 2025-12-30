@@ -26,11 +26,13 @@ export class CreateProjectDto {
   stack?: string[];
 
   @IsString()
-  @IsNotEmpty()
+  // @IsNotEmpty()
+  @IsOptional()
   challenges?: string;
 
   @IsString()
-  @IsNotEmpty()
+  // @IsNotEmpty()
+  @IsOptional()
   achievements?: string;
 
   @IsOptional()

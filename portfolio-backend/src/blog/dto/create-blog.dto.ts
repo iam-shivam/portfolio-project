@@ -10,15 +10,18 @@ import {
 
 export class CreateBlogDto {
   @IsString()
-  @IsNotEmpty()
+  // @IsNotEmpty()
+  @IsOptional()
   title?: string;
 
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
+  // @IsNotEmpty()
   excerpt?: string;
 
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
+  // @IsNotEmpty()
   content?: string;
 
   @IsOptional()
@@ -26,14 +29,17 @@ export class CreateBlogDto {
   coverImage?: string;
 
   @IsArray()
+  @IsOptional()
   @IsString({ each: true })
   tags?: string[];
 
   @IsString()
+  @IsOptional()
   @IsNotEmpty()
   author?: string;
 
   @IsDateString()
+  @IsOptional()
   publishedAt?: string;
 
   @IsOptional()

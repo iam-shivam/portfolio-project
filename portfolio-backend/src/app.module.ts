@@ -7,7 +7,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import databaseConfig from './config/database.config';
 import appConfig from './config/app.config';
-import e from 'express';
 import { Blog } from './blog/entities/blog.entity';
 import { Contact } from './contact/entities/contact.entity';
 import { Project } from './projects/entities/project.entity';
