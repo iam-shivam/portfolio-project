@@ -8,7 +8,8 @@ import { createRoot } from "react-dom/client";
 // import Projects from "./pages/Projects";
 // import ProjectDetails from "./pages/ProjectDetails";
 // import Skills from "./pages/Skills";
-import "./index.css";
+// import "./index.css";
+import "./styles/globals.css";
 import { StrictMode } from "react";
 import Portfolio from "./App";
 

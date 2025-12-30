@@ -19,6 +19,7 @@ export class CreateProjectDto {
 
   @IsString()
   @IsNotEmpty()
+  @IsOptional()
   contributions?: string;
 
   @IsArray()
